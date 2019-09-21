@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -20,4 +21,13 @@ public class RecommendationService {
     }
 
 
+    public void saveRecommendation(Integer videoId, Map<String, String> data) {
+        Integer rate = Integer.parseInt(data.get("rating"));
+        Recommendation build = Recommendation.builder()
+                .videoId(videoId)
+                .rating(rate)
+                .comment(data.get("comment"))
+                .build();
+        repository.save(build);
+    }
 }
