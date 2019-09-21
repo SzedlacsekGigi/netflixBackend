@@ -1,4 +1,4 @@
-package com.codecool.videorecommendation.model;
+package com.codecool.videoservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
