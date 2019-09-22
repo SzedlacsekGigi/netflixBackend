@@ -21,7 +21,10 @@ public class RecommendationController {
         return service.retrieveAllByVideo(videoId);
     }
 
-    @PostMapping("/video/{videoId}")
+    @RequestMapping(
+            value = "/video/{videoId}",
+            produces = "application/json",
+            method = {RequestMethod.POST})
     public void saveNewRecommendation(@PathVariable("videoId") Integer videoId, @RequestBody Map<String, String> data){
         service.saveRecommendation(videoId, data);
     }
